@@ -26,12 +26,12 @@ Run the jar
     spark-submit \
     --master local \
     --class com.datalogs.dataset.SampleDatasetCsvProcessor \
-    /Users/joychak/joy/workspace/repo/data-ingestion/spark-processor-dataset/target/scala-2.11/ingestion-spark-processor-dataset-assembly-1.1.0.jar \
-    --input-dir /Users/joychak/joy/workspace/repo/data-ingestion/src/test/data/input \
-    --output-dir /Users/joychak/joy/workspace/repo/data-ingestion/src/test/data/output \
-    --archive-dir /Users/joychak/joy/workspace/repo/data-ingestion/src/test/data/archive \
-    --trap-dir /Users/joychak/joy/workspace/repo/data-ingestion/src/test/data/trap \
-    --state-store-dir /Users/joychak/joy/workspace/repo/data-ingestion/src/test/data/state-store \
+    <project-root>/spark-processor-dataset/target/scala-2.11/ingestion-spark-processor-dataset-assembly-1.1.0.jar \
+    --input-dir <project-root>/src/test/data/input \
+    --output-dir <project-root>/src/test/data/output \
+    --archive-dir <project-root>/src/test/data/archive \
+    --trap-dir <project-root>/src/test/data/trap \
+    --state-store-dir <project-root>/src/test/data/state-store \
     --batch-id 20181231080000 \
     --duration 525600 \
     --prepare-n-days 365 \
@@ -66,5 +66,5 @@ Run the following command at "spark-shell" to view the ingested parquet data
 -----------------------------------------------------------------------------
 
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-    val df = sqlContext.read.parquet("/Users/joychak/joy/workspace/repo/data-ingestion/src/test/data/output/eventDate=2018-04-02/batchId=20181231080000/*")
+    val df = sqlContext.read.parquet("<project-root>/src/test/data/output/eventDate=2018-04-02/batchId=20181231080000/*")
     df.show()
