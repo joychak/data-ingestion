@@ -15,4 +15,5 @@ id_rsa*
 /.ivy
 metastore_db/
 derby.log
-src
+/src
+.DS_Store/
